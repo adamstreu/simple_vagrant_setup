@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "ansible1" do |ansible1|
     ansible1.vm.box = base_box
+    ansible1.vm.hostname = "ansible1"
     ansible1.vm.network "private_network", ip: "10.101.0.2"
     ansible1.vm.network "forwarded_port", guest: 80, host: sfi + 0
     ansible1.vm.provision "shell", inline: $install_ansible
@@ -34,12 +35,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "ansible2" do |ansible2|
     ansible2.vm.box = base_box
+    ansible2.vm.hostname = "ansible2"
     ansible2.vm.network "private_network", ip: "10.101.0.3"
     ansible2.vm.network "forwarded_port", guest: 80, host: sfi + 1
   end
 
   config.vm.define "ansible3" do |ansible3|
     ansible3.vm.box = base_box
+    ansible3.vm.hostname = "ansible3"
     ansible3.vm.network "private_network", ip: "10.101.0.4"
     ansible3.vm.network "forwarded_port", guest: 80, host: sfi + 2
   end
