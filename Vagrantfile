@@ -25,25 +25,23 @@ SCRIPT
 
 Vagrant.configure("2") do |config| 
 
-  config.vm.define "box1" do |box1|
-    box1.vm.box = base_box
-    box1.vm.network "private_network", ip: "10.101.0.2"
-    box1.vm.network "forwarded_port", guest: 80, host: sfi + 0
-    box1.vm.provision "shell", inline: $provision_user_space 
+  config.vm.define "ansible1" do |ansible1|
+    ansible1.vm.box = base_box
+    ansible1.vm.network "private_network", ip: "10.101.0.2"
+    ansible1.vm.network "forwarded_port", guest: 80, host: sfi + 0
+    ansible1.vm.provision "shell", inline: $install_ansible
   end
 
-  config.vm.define "box2" do |box2|
-    box2.vm.box = base_box
-    box2.vm.network "private_network", ip: "10.101.0.3"
-    box2.vm.network "forwarded_port", guest: 80, host: sfi + 1
-    box2.vm.provision "shell", inline: $provision_user_space 
+  config.vm.define "ansible2" do |ansible2|
+    ansible2.vm.box = base_box
+    ansible2.vm.network "private_network", ip: "10.101.0.3"
+    ansible2.vm.network "forwarded_port", guest: 80, host: sfi + 1
   end
 
-  config.vm.define "box2" do |box3|
-    box3.vm.box = base_box
-    box3.vm.network "private_network", ip: "10.101.0.4"
-    box3.vm.network "forwarded_port", guest: 80, host: sfi + 2
-    box3.vm.provision "shell", inline: $provision_user_space 
+  config.vm.define "ansible3" do |ansible3|
+    ansible3.vm.box = base_box
+    ansible3.vm.network "private_network", ip: "10.101.0.4"
+    ansible3.vm.network "forwarded_port", guest: 80, host: sfi + 2
   end
 
 end

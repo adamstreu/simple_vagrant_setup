@@ -1,6 +1,6 @@
 ---
 configs:
-    starting_forward_ip: 8050
+    starting_forward_ip: 8096
     subnet: 10.100.0
     starting_host_ip: 2
     base_box: "ubuntu/bionic64"
