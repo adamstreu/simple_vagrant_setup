@@ -1,3 +1,5 @@
 ---
 configs:
     starting_forward_ip: 8071
+    subnet: 10.100.0
+    starting_host_ip: 2
