@@ -1,6 +1,13 @@
----
-configs:
-    starting_forward_ip: 8096
-    subnet: 10.100.0
-    starting_host_ip: 2
-    base_box: "adam3"
+hosts:
+  - name: ansible1
+    scripts:
+      - 
+  - name: ansible2
+    ports:
+      - in:  80
+        out: 8065
+      - in: 80
+        out: 80
+  - name: ansible3
+base_box: ubuntu/bionic64
+

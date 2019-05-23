@@ -1,4 +1,4 @@
-*
-!Vagrantfile*
-!config.yml
-!.gitignore*
+.vagrant
+.gitignore
+.git
+instances/*
